@@ -18,8 +18,6 @@ body{
     justify-content: center;
 }
 
-
-
 .container{
     width: 350px;
     height: 465px;
@@ -52,4 +50,47 @@ body{
     top: 50%;
 	transform: translate(-50%,-50%); 
 	background-color: #fff;
+}
+
+.hand{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+
+.hour::after{
+    display: block;
+    position: absolute;
+    content: '';
+    width: 72px;
+    height: 8px;
+    left: 40%;
+    top: 50%;
+    background-image: url('file:///Users/sabrina/Downloads/hour-hand%20(1).svg');
+    transform: translate(-50%, -50%);
+}
+
+.min::after{
+    display: block;
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 96px;
+    left: 50%;
+    top: 50%;
+    background-image: url('file:///Users/sabrina/Downloads/minute-hand%20(1).svg');
+    transform: translate(-50%, 0%);
+}
+
+.sec::after{
+    display: block;
+    position: absolute;
+    content: '';
+    width: 13px;
+    height: 126px;
+    left: 50%;
+    top: 50%;
+    background-image: url('file:///Users/sabrina/Downloads/second-hand%20(1).svg');
+    transform: translate(-50%, 0%);
 }
