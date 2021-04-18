@@ -13,6 +13,18 @@ body{
     background-color: #F0F0F0; 
 }
 
+header{
+    width: 1280px;
+    height: calc(1372px - 34px);
+    background: #f0f0f0;
+    margin: auto;
+    padding: 80px 85px 80px 85px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+
+}
 
 h1{
     font-size: 56px;
