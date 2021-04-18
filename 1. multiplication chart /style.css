@@ -72,8 +72,37 @@ h2{
     display: flex;
     justify-content: center;
 }
+.chart{
+    width: 270px;
+    height: 238px;
+    padding: 0;
+    list-style: none;
+    color: #2eb738;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.title{
+    width: 71px;
+    height: 120px;
+    font-size: 128px;
+    color: #2EB738;
+    text-shadow: 4px 3px 0px #F0F0F0;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+}
 
-
+.num{
+    font-size: 24px;
+    width: 105px;
+    height: 33px;
+}
 
 footer{
     height: 34px;
