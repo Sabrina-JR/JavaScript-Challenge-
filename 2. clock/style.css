@@ -18,11 +18,38 @@ body{
     justify-content: center;
 }
 
-.clock{
+
+
+.container{
     width: 350px;
     height: 465px;
     background-image: url('file:///Users/sabrina/Downloads/clock-bg.svg');
     background-size: auto;
     background-position: center;
+    position: relative;
 }
 
+/* clock相對定位 */
+
+.clock{
+	position: relative;
+	width: 100%;
+	height: 100%; 
+
+    /* 調整位置對準中心點 */
+    transform: translateY(-2px);
+	
+} 
+
+/* 時間的中心點 */
+.clock::after{
+    content:'';
+    width: 10px;
+	height:10px;
+	border-radius: 100%;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+	transform: translate(-50%,-50%); 
+	background-color: #fff;
+}
