@@ -26,3 +26,33 @@ let updateDisplayVal = (e) =>{
       calcnumbtn[i].addEventListener('click',updateDisplayVal,false);
   }
   
+  
+//監聽全部清除
+clearbtn.addEventListener('click',()=>{
+    displayVal = '0';
+    displayValElement.innerText = displayVal;
+    pendingVal = undefined; //因為已被刪除
+    evalStringArray = [];
+})
+
+
+//監聽刪除
+backspacebtn.addEventListener('click',()=>{
+    let displayVal_length = displayVal.length;
+    displayVal = displayVal.slice(0, displayVal_length - 1);//最後一個數字被刪除
+    
+    if(displayVal === '') {
+        displayVal = '0';
+    }
+    displayValElement.innerText = displayVal;
+})
+
+
+//監聽點數
+decimalbtn.addEventListener('click',()=>{
+    if(!displayVal.includes('.')){
+        displayVal+= '.'; //若已有點數就不再加點數
+    }
+    displayValElement.innerText = displayVal;
+})
+
