@@ -12,3 +12,17 @@ let pendingVal; //追蹤被影藏的數字 ex. 5+3時顯示3而5被隱藏
 let evalStringArray = [];
 
 //////////////////////////////////
+
+
+let updateDisplayVal = (e) =>{
+    let btnText = e.target.innerText;//抓住按到的數字
+    if(displayVal === '0'){ displayVal = '';}
+    
+    displayVal+= btnText;
+    displayValElement.innerText = displayVal;
+  }
+  
+  for(let i=0; i<calcnumbtn.length; i++) {
+      calcnumbtn[i].addEventListener('click',updateDisplayVal,false);
+  }
+  
