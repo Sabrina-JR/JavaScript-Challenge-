@@ -34,6 +34,12 @@ body{
     opacity: 1;
 }
 
+.head .input{
+    color: #fff;
+    padding: 15px;
+    text-align: right;
+}
+
 .allbtn{
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +55,14 @@ body{
     align-items: center;
     width: 72px;
     height: 64px;
-    color: #eee;
+    outline: none;
+	border: none;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
+	font-size: inherit;
+
+
 }
 .btnmar{
     margin-bottom: 16px;
