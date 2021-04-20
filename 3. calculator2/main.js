@@ -26,7 +26,7 @@ let updateDisplayVal = (e) =>{
       calcnumbtn[i].addEventListener('click',updateDisplayVal,false);
   }
   
-  
+
 //監聽全部清除
 clearbtn.addEventListener('click',()=>{
     displayVal = '0';
@@ -55,4 +55,61 @@ decimalbtn.addEventListener('click',()=>{
     }
     displayValElement.innerText = displayVal;
 })
+
+
+let performOperator = (e) =>{
+    let operator = e.target.innerText
+    console.log(operator)
+   
+    switch(operator) {
+        case '+':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('+');
+            break;
+
+        case '-':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('-');
+            break;
+
+        case '×':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('*');
+            break;
+
+        case '÷':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('/');
+            break;
+
+        case '=':
+           evalStringArray.push(displayVal);
+            let evaluation = eval(evalStringArray.join(' '));
+            displayVal = evaluation + '';
+            displayValElement.innerText = displayVal;
+            evalStringArray = [];
+            break;
+
+        default:
+            break;
+    }
+
+}
+
+
+for(let i=0; i<calcoperatorbtn.length; i++){
+    calcoperatorbtn[i].addEventListener('click',performOperator,false)
+}
 
