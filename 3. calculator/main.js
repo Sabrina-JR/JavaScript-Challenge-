@@ -56,3 +56,53 @@ decimalbtn.addEventListener('click',()=>{
     
     displayResult.innerText = displayVal;
 })
+
+
+
+let performOperator = (e) =>{
+    let operator = e.target.innerText;
+
+    switch(operator){
+        case '+':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayResult.innerText = displayVal;
+            evalStrAry.push(displayVal);
+            evalStrAry.push('+')
+            break;
+
+        case '-':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayResult.innerText = displayVal;
+            evalStrAry.push(displayVal);
+            evalStrAry.push('-')
+            break;
+
+        case '×':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayResult.innerText = displayVal;
+            evalStrAry.push(displayVal);
+            evalStrAry.push('×')
+            break;
+
+        case '÷':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayResult.innerText = displayVal;
+            evalStrAry.push(displayVal);
+            evalStrAry.push('/')
+            break;            
+
+        default:
+            break;
+    }
+}
+
+
+
+// for迴圈抓住所有btn-operator監聽click事件
+for(let i=0; i<calcoperatorbtn.length; i++){
+    calcoperatorbtn[i].addEventListener('click',performOperator,false)
+}
