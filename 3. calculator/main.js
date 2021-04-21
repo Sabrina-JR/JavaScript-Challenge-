@@ -31,3 +31,21 @@ for(let i=0; i<calcnumbtn.length; i++){
     calcnumbtn[i].addEventListener('click',updateDisplayResult,false);
 }
 
+
+//全部清除
+clearbtn.addEventListener('click',()=>{
+    displayVal = '0';
+    displayResult.innerText = displayVal;
+    pendingVal =  undefined;
+    evalStrAry = [];
+})
+
+//刪除
+backspacebtn.addEventListener('click',()=>{
+    displayVal = displayVal.slice(0,displayVal.length -1)
+    if(displayVal === '')
+       displayVal = '0';
+
+    displayResult.innerText = displayVal;
+})
+
