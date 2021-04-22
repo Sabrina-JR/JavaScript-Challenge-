@@ -26,21 +26,15 @@ let str = '';
 for(let i=0; i<timeary.length; i++){
     let getitem = timeary[i].split(',')//分割
     let fulldate = getitem.slice(0,1) + ''; //只取日月  
-    // console.log(getitem,fulldate)
-
     let monthname = month[nowMonth.getMonth()]//抓取當月份
-
     let year_day = fulldate.split('/').slice(1) 
-    // console.log(monthname,year_day)
 
     getDay.push(year_day.slice(0,1))//只取日期
     getYear.push(year_day.splice(1))//只取當年
     getMonthName.push(monthname)
-    // console.log(getDay,getYear,getMonthName)
 
     let felltime = getitem.slice(1)+'';
     getTime.push(felltime.split(':').slice(0,2).join(':'))//捨去秒數
-    // console.log(felltime,getTime)
 
     str+=`
     <div class="list">
@@ -61,8 +55,6 @@ for(let i=0; i<timeary.length; i++){
     
 }
 list.innerHTML = str;
-console.log(str)
-
 
 //    國家：${county[i]}
 //    月份：${getMonthName[i]}

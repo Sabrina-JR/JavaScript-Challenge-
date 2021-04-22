@@ -34,10 +34,11 @@ body{
 }
 
 .list{
+
+    background-color: #fff;
     height: 104px;
     border: solid 1px black;
 }
-
    
 .box{
   width: 100%;
@@ -53,12 +54,14 @@ body{
 }
 
 .country{
-    margin-top: 15px;
+    margin: 15px 0px -10px 0px;
 }
 
 p{
     font-size: 16px;
-    margin-top: 0px;
+    font-style: italic;
+    margin-bottom: 6px;
+   
 }
 
 .time{
