@@ -60,7 +60,7 @@ body{
     align-items: center;
     width: 72px;
     height: 64px;
-    outline: none;
+    outline: none; 
 	border: none;
 	background: transparent;
 	color: #fff;
@@ -88,6 +88,6 @@ body{
     background: linear-gradient(to right,#00C4FF,#6C00FF);
     border-radius: 16px;
     font-weight: bold;
-    text-align: right !important;
+    text-align: right;
  
 }

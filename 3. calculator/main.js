@@ -61,39 +61,52 @@ decimalbtn.addEventListener('click',()=>{
 
 let performOperator = (e) =>{
     let operator = e.target.innerText;
+    console.log(operator)
 
     switch(operator){
         case '+':
             pendingVal = displayVal;
             displayVal = '0';
             displayResult.innerText = displayVal;
-            evalStrAry.push(displayVal);
+            evalStrAry.push(pendingVal);
             evalStrAry.push('+')
             break;
 
-        case '-':
+        case '−':
             pendingVal = displayVal;
             displayVal = '0';
             displayResult.innerText = displayVal;
-            evalStrAry.push(displayVal);
-            evalStrAry.push('-')
+            evalStrAry.push(pendingVal);
+            evalStrAry.push('−')
             break;
 
         case '×':
             pendingVal = displayVal;
             displayVal = '0';
             displayResult.innerText = displayVal;
-            evalStrAry.push(displayVal);
-            evalStrAry.push('×')
+            evalStrAry.push(pendingVal);
+            evalStrAry.push('*')
             break;
 
         case '÷':
             pendingVal = displayVal;
             displayVal = '0';
             displayResult.innerText = displayVal;
-            evalStrAry.push(displayVal);
+            evalStrAry.push(pendingVal);
             evalStrAry.push('/')
-            break;            
+            break;
+
+        case '=':
+            evalStrAry.push(displayVal);//str
+            let evaluation = eval(evalStrAry.join(' '));//計算
+            displayVal = evaluation + ''; //num改回str
+            displayResult.innerText = displayVal;
+            evalStrAry = [];
+
+            console.log(displayVal,evaluation)
+        
+            
+            break; 
 
         default:
             break;
