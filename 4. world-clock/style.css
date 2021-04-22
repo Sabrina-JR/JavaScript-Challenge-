@@ -1,5 +1,5 @@
 *{
-    /* border: solid 1px black; */
+    /* border: solid 1px gray; */
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     line-height: 1;
@@ -20,8 +20,8 @@ body{
 
 .container{
     width: 540px;
+    height: 100%;
     margin: 72px;
-
 }
 
 .title{
@@ -33,20 +33,26 @@ body{
     
 }
 
-/* .list{
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
- 
-    
+.list{
+    height: 104px;
+    border: solid 1px black;
 }
 
-.time{
-    font-size: 36px;
    
+.box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px ;
 }
 
-.area{
+.date{
+    width: 50%;
+    font-size: 36px;
+}
+
+.country{
     margin-top: 15px;
 }
 
@@ -55,8 +61,9 @@ p{
     margin-top: 0px;
 }
 
-.date{
+.time{
+    width: 50%;
     font-size: 72px;
-    
-    
-} */
+    text-align: center;
+    margin-top: 14px;
+}
