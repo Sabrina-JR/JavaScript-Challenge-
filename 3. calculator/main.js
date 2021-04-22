@@ -23,6 +23,7 @@ let updateDisplayResult = (e) =>{
 
     displayVal+= btnText;
     displayResult.innerText = displayVal;
+    displayDetail.innerText = displayVal;
 }
 
 // for迴圈抓住所有btn-num監聽click事件
@@ -35,6 +36,7 @@ for(let i=0; i<calcnumbtn.length; i++){
 clearbtn.addEventListener('click',()=>{
     displayVal = '0';
     displayResult.innerText = displayVal;
+    displayDetail.innerText = displayVal;
     pendingVal =  undefined;
     evalStrAry = [];
 })
@@ -46,6 +48,7 @@ backspacebtn.addEventListener('click',()=>{
        displayVal = '0';
 
     displayResult.innerText = displayVal;
+    displayDetail.innerText = displayVal;
 })
 
 //點數
@@ -55,14 +58,14 @@ decimalbtn.addEventListener('click',()=>{
         displayVal+='.'
     
     displayResult.innerText = displayVal;
+    displayDetail.innerText = displayVal;
 })
 
 
 
 let performOperator = (e) =>{
     let operator = e.target.innerText;
-    console.log(operator)
-
+ 
     switch(operator){
         case '+':
             pendingVal = displayVal;
@@ -70,6 +73,7 @@ let performOperator = (e) =>{
             displayResult.innerText = displayVal;
             evalStrAry.push(pendingVal);
             evalStrAry.push('+')
+
             break;
 
         case '−':
@@ -99,13 +103,13 @@ let performOperator = (e) =>{
         case '=':
             evalStrAry.push(displayVal);//str
             let evaluation = eval(evalStrAry.join(' '));//計算
-            displayVal = evaluation + ''; //num改回str
-            displayResult.innerText = displayVal;
-            evalStrAry = [];
-
-            console.log(displayVal,evaluation)
-        
+            displayVal = evaluation + ''; //num改回str;
             
+            displayResult.innerText = displayVal;
+            displayDetail.innerText = displayVal;
+ 
+            evalStrAry = [];
+    
             break; 
 
         default:
