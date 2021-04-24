@@ -20,3 +20,22 @@ let promise = new Promise((resolve,reject)=>{
 
 });
 
+promise.then((res)=>{
+    let CallBackData = JSON.parse(res);//轉成陣列
+    let Countyary =[];
+    let Timeary;
+   
+    for(let i=0; i<CallBackData.length; i++){
+        Countyary.push(CallBackData[i].County); //顯示縣市資料
+        Timeary = CallBackData[i].PublishTime; //更新時間
+    }
+
+    let select = Countyary.filter((item,key,ary)=>{
+        return ary.indexOf(item) === key //留下第一個符合的縣市共22個
+    })   
+    console.log(select) 
+});
+
+promise.catch((error)=>{
+    console.log(error)
+});
