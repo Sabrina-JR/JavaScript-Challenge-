@@ -22,6 +22,12 @@ let promise = new Promise((resolve,reject)=>{
 
 promise.then((res)=>{
     let CallBackData = JSON.parse(res);//轉成陣列
+
+    //取DOM
+
+   
+    let selectArea = document.getElementById('area');
+
     let Countyary =[];
     let Timeary;
    
@@ -32,10 +38,19 @@ promise.then((res)=>{
 
     let select = Countyary.filter((item,key,ary)=>{
         return ary.indexOf(item) === key //留下第一個符合的縣市共22個
-    })   
-    console.log(select) 
+    })  
+    
+    for(let i=0; i<select.length; i++){
+        option = document.createElement('option')
+        option.value = select[i];
+        option.innerHTML = select[i];
+        selectArea.appendChild(option); 
+    }
+    
+
 });
 
 promise.catch((error)=>{
     console.log(error)
 });
+
