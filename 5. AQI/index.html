@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>AQI</title>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <h1>空氣品質指標 (AQI)</h1>
+            <select name="area" id="area">
+                <option value="請選擇地區" selected>請選擇地區</option>
+            </select>
+        </div>
+        <table class="level" CellSpacing='0'> 
+                <tr class="row levelname">
+                    <td class="le1">0~50</td>
+                    <td class="le2">51~100</td>
+                    <td class="le3">101~150</td>
+                    <td class="le4">151~200</td>
+                    <td class="le5">201~300</td>
+                    <td class="le6">310~400</td>   
+                </tr>  
+                <tr class="row healthlevel"> 
+                    <td>良好</td>
+                    <td>普通</td>
+                    <td>對敏感族群不健康</td>
+                    <td>對所有族群不健康</td>
+                    <td>非常不健康</td>
+                    <td>危害</td>
+                </tr>  
+         </table>
+    </header>
+    <!-- <footer>
+        <div>資料來源：行政院環境保護署</div>
+        <div>Copyright © 2019 HexSchool. All rights reserved.</div>
+    </footer> -->
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+*{
+    border: solid 1px black;
+    font-family: 'Noto Sans CJK TC';
+}
+
+header{
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+}
+
+.top{
+    width: 350px;
+    margin-right: 56px;
+}
+
+h1{
+    font-size: 40px;
+    margin: 0px 0px 10px 0px;
+}
+
+select{
+    border: solid 3px black;
+    width: 350px;
+    height: 56px;
+    
+}
+
+.level{
+    border:  solid 2px black;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.levelname td{
+    border:  solid 2px black;
+    width: 121.67px;
+    height: 54px;
+}
+
+.healthlevel td{
+    border:  solid 2px black;
+    width: 121.67px;
+    height: 56px;
+}
+
+.le1{ background-color: #95F084;}
+.le2{ background-color: #FFE695;}
+.le3{ background-color: #FFAF6A;}
+.le4{ background-color: #FF5757;}
+.le5{ background-color: #9777FF;}
+.le6{ background-color: #AD1774;}
+/* footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 85px;
+    background-color: black;
+    color: #fff;   
+} */
