@@ -24,16 +24,21 @@ promise.then((res)=>{
     let CallBackData = JSON.parse(res);//轉成陣列
 
     //取DOM
-
-   
     let selectArea = document.getElementById('area');
+    let areaName = document.querySelector('.areaName');
+    let publishTime = document.querySelector('.publishtime');
+    let showarea = document.querySelector('.showarea');
+   
 
     let Countyary =[];
+    let Data = [];
     let Timeary;
+    let optionValue;
    
     for(let i=0; i<CallBackData.length; i++){
         Countyary.push(CallBackData[i].County); //顯示縣市資料
         Timeary = CallBackData[i].PublishTime; //更新時間
+        Data.push(CallBackData[i]); //所有資料
     }
 
     let select = Countyary.filter((item,key,ary)=>{
@@ -46,6 +51,47 @@ promise.then((res)=>{
         option.innerHTML = select[i];
         selectArea.appendChild(option); 
     }
+    
+    let dataList = () =>{
+        if(!optionValue){
+            optionValue = '基隆市';
+            areaName.innerHTML = optionValue;
+            publishTime.innerHTML = Timeary + '更新'
+        }
+        let str ='';
+        for(let i=0; i<Data.length;i++){
+            if(optionValue === Data[i].County){
+                let AQI = Data[i].AQI;
+                console.log(AQI)
+               if(AQI !== ''){
+                   str+=`<div class="showareabox">
+                   <div class="showbox1">${Data[i].SiteName}</div>
+                   <div class="showbox2">${Data[i].AQI}</div>
+               </div>`
+               }
+
+            }
+           
+        }
+        showarea.innerHTML = str;
+        console.log(optionValue,showarea,str)
+       
+      
+    }
+    dataList();
+
+
+    let UpadateareaName = (e) =>{
+        optionValue = e.target.value;
+        console.log(optionValue)
+        areaName.innerHTML = optionValue;
+        publishTime.innerHTML = Timeary + '更新'
+        dataList();
+    }
+
+    selectArea.addEventListener('change', UpadateareaName)
+
+    
     
 
 });

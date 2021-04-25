@@ -1,5 +1,5 @@
 *{
-    /* border: solid 1px black; */
+    border: solid 1px black;
     box-sizing: border-box;
     font-family: 'Noto Sans CJK TC';
 }
@@ -10,15 +10,22 @@ html,body{
     width: 100%;
     height: 100%;
 }
-
 body{
-    background-color: #F0F0F0;
+    background-color: #F0F0F0; 
+}
+
+.container{  
+    background-color: #F0F0F0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 58px;
 }
 
 header{
-   display: flex; 
-   align-items: center;
-   justify-content: center;
+    display: flex; 
+    align-items: center; 
 }
 
 .top{
@@ -26,7 +33,7 @@ header{
     margin-right: 56px;
 }
 
-h1{
+.areaName{
     font-size: 40px;
     margin: 0px 0px 10px 0px;
 }
@@ -63,10 +70,107 @@ select{
 .le4{ background-color: #FF5757;}
 .le5{ background-color: #9777FF;}
 .le6{ background-color: #AD1774;}
-/* footer{
+
+.title{
     display: flex;
     justify-content: space-between;
+    width: 87%;
+    margin: 20px 0px 0px 0px;
+    padding: 0px 10px 0 10px;
+}
+.title h1{
+    font-size: 36px;
+}
+.title p{
+    font-size: 16px;
+}
+
+section{
+    display: flex;
+    width: 90%;
+    padding: 20px;
+    margin: 30px;
+}
+
+.aoi{
+    background-color: #fff;
+}
+
+.aoitop{
+    border: solid 3px black;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 97px;
+    text-align: center;
+}
+
+.aoitop .aoit1{
+    font-size: 36px;
+    width: 190px;
+    font-weight: bold;
+    padding: 21px;
+}
+.aoitop .aoit2{
+    border-left: solid 3px black;
+    font-size: 48px;
+    width: 160px;
+    padding: 15px;
+   
+}
+.aoibot{
+    border-left: solid 3px black;
+    border-right: solid 3px black;
+    border-bottom: solid 3px black;
+    font-size: 24px;
+}
+
+.aoibot span, sub{
+    font-size: 16px;
+}
+.aoibot .box{
+    border-bottom: solid 1px black ;
+    padding: 15px;
+}
+.aoibot p {
+    margin: -2px;
+}
+.showarea{
+    width: 70%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+.showareabox{
+    border: solid 3px black;
+    width: 350px;
+    height: 97px;
+    display: flex;
+    text-align: center;
+    font-weight:bold;
+    margin-left: 20px;
+    background-color: #fff;
+    
+}
+.showbox1{
+    width: 190px;
+    font-size: 36px;
+    padding: 20px;
+}
+.showbox2{
+    border-left: solid 3px black;
+    width: 160px;
+    font-size:  48px;
+    padding: 12px;
+}
+
+
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    width: 109%;
     padding: 0px 85px;
     background-color: black;
     color: #fff;   
-} */
+}

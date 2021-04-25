@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,9 +9,10 @@
     <title>AQI</title>
 </head>
 <body>
+    <div class="container">
     <header>
         <div class="top">
-            <h1>空氣品質指標 (AQI)</h1>
+            <h1>空氣品質指標(AQI)</h1>
             <select name="area" id="area">
                 <option value="請選擇地區" selected>請選擇地區</option>
             </select>
@@ -36,10 +36,47 @@
                 </tr>  
          </table>
     </header>
-    <!-- <footer>
+    <div class="row title"> 
+        <h1 class="areaName">所有縣市</h1>
+        <p class="publishtime">更新時間</p>
+    </div>
+    <section>
+        <div class="aoi">
+            <div class="aoitop">
+                <div class="aoit1">基隆</div>
+                <div class="aoit2">37</div>
+            </div>
+            <div class="aoibot">
+                <div class="box">
+                    <p>臭氧 <span>O<sub>3</sub>(ppb)</span><p>    
+                </div>
+                <div class="box">
+                    <p>懸浮微粒 <span>PM<sub>10</sub>(μg/m3)</span><p>
+                </div>
+                <div class="box">
+                    <p>細懸浮微粒 <span>PM<sub>2.5</sub>(μg/m3)</span><p>
+                </div>
+                <div class="box">
+                    <p>一氧化碳 <span>CO(ppb)</span><p>
+                </div>
+                <div class="box">
+                    <p>二氧化硫 <span>SO(ppb)</span><p>
+                </div>
+                <div class="box">
+                    <p>細懸浮微粒 <span>NO<sub>2</sub>(ppb)</span><p>
+                </div>
+            </div>
+        </div>
+        <div class="showarea">
+        </div>
+    </section>
+
+   
+    <footer>
         <div>資料來源：行政院環境保護署</div>
         <div>Copyright © 2019 HexSchool. All rights reserved.</div>
-    </footer> -->
+    </footer>
+</div>
     <script src="main.js"></script>
 </body>
 </html>
