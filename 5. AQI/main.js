@@ -62,20 +62,32 @@ promise.then((res)=>{
         for(let i=0; i<Data.length;i++){
             if(optionValue === Data[i].County){
                 let AQI = Data[i].AQI;
-                console.log(AQI)
                if(AQI !== ''){
                    str+=`<div class="showareabox">
                    <div class="showbox1">${Data[i].SiteName}</div>
                    <div class="showbox2">${Data[i].AQI}</div>
                </div>`
                }
-
             }
-           
         }
         showarea.innerHTML = str;
-        console.log(optionValue,showarea,str)
-       
+        let AQIcolor = document.querySelectorAll('.showbox2')
+        for(let j=0; j<AQIcolor.length; j++){
+            let AQIText = AQIcolor[j].innerText;
+            if (AQIText <= 50) {
+                AQIcolor[j].setAttribute('style', 'background: #95F084;');
+            } else if (AQIText >= 51 && AQIText <= 100) {
+                AQIcolor[j].setAttribute('style', 'background: #FFE695;');
+            } else if (AQIText >= 101 && AQIText <= 150) {
+                AQIcolor[j].setAttribute('style', 'background: #FFAF6A;');
+            } else if (AQIText >= 151 && AQIText <= 200) {
+                AQIcolor[j].setAttribute('style', 'background: #FF5757;');
+            } else if (AQIText >= 201 && AQIText <= 300) {
+                AQIcolor[j].setAttribute('style', 'background: #9777FF;');
+            } else if (AQIText >= 301 && AQIText <= 400) {
+                AQIcolor[j].setAttribute('style', 'background: #AD1774;');
+            }
+        }
       
     }
     dataList();
@@ -83,7 +95,6 @@ promise.then((res)=>{
 
     let UpadateareaName = (e) =>{
         optionValue = e.target.value;
-        console.log(optionValue)
         areaName.innerHTML = optionValue;
         publishTime.innerHTML = Timeary + '更新'
         dataList();
