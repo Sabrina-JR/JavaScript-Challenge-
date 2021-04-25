@@ -34,6 +34,7 @@ promise.then((res)=>{
     let Data = [];
     let Timeary;
     let optionValue;
+    let SiteNameValue;
    
     for(let i=0; i<CallBackData.length; i++){
         Countyary.push(CallBackData[i].County); //顯示縣市資料
@@ -102,8 +103,60 @@ promise.then((res)=>{
 
     selectArea.addEventListener('change', UpadateareaName)
 
-    
-    
+
+let AreaList = document.querySelector('.showbox1')
+console.log(AreaList)
+let SiteName = document.querySelector('.aoit1')
+let AQIselect =  document.querySelector('.aoit2')
+let O3 = document.querySelector('.O3')
+let PM10 = document.querySelector('.PM10')
+let PM25 = document.querySelector('.PM25')
+let CO = document.querySelector('.CO')
+let SO = document.querySelector('.SO')
+let NO = document.querySelector('.NO')
+
+let dataSiteName = () =>{
+    if(!SiteNameValue){
+        SiteNameValue = '基隆';
+    }
+
+    for(let i=0; i<Data.length; i++){
+        if(SiteNameValue === Data[i].SiteName){
+            SiteName.innerText = Data[i].SiteName;
+            if(Data[i].AQI ==''){
+                AQIselect.innerHTML ='';
+                O3.innerHTML = '';
+                PM10.innerHTML = '';
+                PM25.innerHTML = '';
+                CO.innerHTML = '';
+                SO.innerHTML = '';
+                NO.innerHTML = '';
+                AOIselect.setAttribute('style','background: none;')
+            }else{
+                AQIselect.innerHTML = Data[i].AQI;
+                O3.innerHTML = Data[i].O3;
+                PM10.innerHTML = Data[i].PM10;
+                PM25.innerHTML = Data[i]['PM2.5'];
+                CO.innerHTML = Data[i].CO;
+                SO.innerHTML = Data[i].SO2;
+                NO.innerHTML = Data[i].NO2;
+            }
+        }
+    }
+}
+
+dataSiteName();
+
+
+
+let Select_SiteName = (e) =>{
+ SiteNameValue = e.target.innerText
+ console.log(SiteNameValue)
+ dataSiteName();
+}
+
+
+AreaList.addEventListener('click',Select_SiteName)   
 
 });
 
