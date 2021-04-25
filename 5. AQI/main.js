@@ -89,13 +89,14 @@ promise.then((res)=>{
                 AQIcolor[j].setAttribute('style', 'background: #AD1774;');
             }
         }
-      
+
     }
     dataList();
 
 
     let UpadateareaName = (e) =>{
         optionValue = e.target.value;
+        console.log(optionValue)
         areaName.innerHTML = optionValue;
         publishTime.innerHTML = Timeary + '更新'
         dataList();
@@ -104,59 +105,73 @@ promise.then((res)=>{
     selectArea.addEventListener('change', UpadateareaName)
 
 
-let AreaList = document.querySelector('.showbox1')
-console.log(AreaList)
-let SiteName = document.querySelector('.aoit1')
-let AQIselect =  document.querySelector('.aoit2')
-let O3 = document.querySelector('.O3')
-let PM10 = document.querySelector('.PM10')
-let PM25 = document.querySelector('.PM25')
-let CO = document.querySelector('.CO')
-let SO = document.querySelector('.SO')
-let NO = document.querySelector('.NO')
+    let AreaList = document.querySelector('.showbox1')
+    let SiteName = document.querySelector('.aoit1')
+    let AQIselect =  document.querySelector('.aoit2')
+    let O3 = document.querySelector('.O3')
+    let PM10 = document.querySelector('.PM10')
+    let PM25 = document.querySelector('.PM25')
+    let CO = document.querySelector('.CO')
+    let SO = document.querySelector('.SO')
+    let NO = document.querySelector('.NO')
 
-let dataSiteName = () =>{
-    if(!SiteNameValue){
-        SiteNameValue = '基隆';
-    }
+    let dataSiteName = () =>{
+        if(!SiteNameValue){
+            SiteNameValue = '基隆';
+        }
 
-    for(let i=0; i<Data.length; i++){
-        if(SiteNameValue === Data[i].SiteName){
-            SiteName.innerText = Data[i].SiteName;
-            if(Data[i].AQI ==''){
-                AQIselect.innerHTML ='';
-                O3.innerHTML = '';
-                PM10.innerHTML = '';
-                PM25.innerHTML = '';
-                CO.innerHTML = '';
-                SO.innerHTML = '';
-                NO.innerHTML = '';
-                AOIselect.setAttribute('style','background: none;')
-            }else{
-                AQIselect.innerHTML = Data[i].AQI;
-                O3.innerHTML = Data[i].O3;
-                PM10.innerHTML = Data[i].PM10;
-                PM25.innerHTML = Data[i]['PM2.5'];
-                CO.innerHTML = Data[i].CO;
-                SO.innerHTML = Data[i].SO2;
-                NO.innerHTML = Data[i].NO2;
+        for(let i=0; i<Data.length; i++){
+            if(SiteNameValue === Data[i].SiteName){
+                SiteName.innerText = Data[i].SiteName;
+                if(Data[i].AQI ===''){
+                    AQIselect.innerHTML ='';
+                    O3.innerHTML = '';
+                    PM10.innerHTML = '';
+                    PM25.innerHTML = '';
+                    CO.innerHTML = '';
+                    SO.innerHTML = '';
+                    NO.innerHTML = '';
+                    AOIselect.setAttribute('style','background: none;')
+                }else{
+                    AQIselect.innerHTML = Data[i].AQI;
+                    O3.innerHTML = Data[i].O3;
+                    PM10.innerHTML = Data[i].PM10;
+                    PM25.innerHTML = Data[i]['PM2.5'];
+                    CO.innerHTML = Data[i].CO;
+                    SO.innerHTML = Data[i].SO2;
+                    NO.innerHTML = Data[i].NO2;
+                    
+                    let AQIText = AQIselect.innerText;
+                    console.log(AQIText)
+                    if (AQIText <= 50) {
+                        AQIselect.setAttribute('style', 'background: #95F084;');
+                    } else if (AQIText >= 51 && AQIText <= 100) {
+                        AQIselect.setAttribute('style', 'background: #FFE695;');
+                    } else if (AQIText >= 101 && AQIText <= 150) {
+                        AQIselect.setAttribute('style', 'background: #FFAF6A;');
+                    } else if (AQIText >= 151 && AQIText <= 200) {
+                        AQIselect.setAttribute('style', 'background: #FF5757;');
+                    } else if (AQIText >= 201 && AQIText <= 300) {
+                        AQIselect.setAttribute('style', 'background: #9777FF;');
+                    } else if (AQIText >= 301 && AQIText <= 400) {
+                        AQIselect.setAttribute('style', 'background: #AD1774;');
+                    }
+                }
             }
         }
+    }  
+
+    dataSiteName();
+
+
+
+    let Select_SiteName = (e) =>{
+    SiteNameValue = e.target.innerText;
+    console.log(SiteNameValue)
+    dataSiteName();
     }
-}
 
-dataSiteName();
-
-
-
-let Select_SiteName = (e) =>{
- SiteNameValue = e.target.innerText
- console.log(SiteNameValue)
- dataSiteName();
-}
-
-
-AreaList.addEventListener('click',Select_SiteName)   
+    AreaList.addEventListener('click',Select_SiteName);
 
 });
 

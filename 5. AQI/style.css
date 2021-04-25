@@ -113,9 +113,11 @@ section{
 }
 .aoitop .aoit2{
     border-left: solid 3px black;
+    border-top: solid 3px black;
+    border-bottom: solid 3px black;
     font-size: 48px;
     width: 160px;
-    padding: 15px;
+    padding: 12px;
    
 }
 .aoibot{
