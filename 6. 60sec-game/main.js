@@ -21,7 +21,7 @@ let SecondNum;
 let FormulaOperation;
 let RealAnswer;
 
-console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Operation,Num,Answer,RestartBtn)
+// console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Operation,Num,Answer,RestartBtn)
 
 
 let StartTheGame = () =>{
