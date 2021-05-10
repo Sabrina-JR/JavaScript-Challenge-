@@ -1,130 +1,268 @@
-*{
-	/* border: solid 1px black; */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+/* ------------------------------- */
+
+*, *::before, *::after{
+	/* outline: solid 1px black; */
 	box-sizing: border-box;
-	font-family: 'Roboto Condensed';
-	font-weight: bold;
 }
 
 body{
-	background-color: #FF9D00;
+	background-color: #FF9D00;;
 }
 
-.top{
+.container{
+	width: 1024px;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 0 auto;
+}
+
+
+/* --BeforGame-- */
+
+.befor-tittle{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 5em 0;
 }
 
 .sec{
-	font-size: 260px;
-	width: 315px;
+	font-size: 240px;
 	color: #fff;
 	text-shadow: 12px 0px 0px #000000;
 }
 
-.secchallenge{
-	position: relative;
-	width: 615px;
+.sec-challenge{
 	font-size: 96px;
-	padding-left: 24px;
+    margin-left: 24px;	
 }
 
-.operatorlogo{
-	position: absolute;
-	right: 0px;
-    top: 30px;
+.sec-challenge>span{
 	font-size: 44px;
-	
+	margin-left: 17px;
 	color: #fff;
-}
-.operatorlogo::before{
-	position: absolute;
-	content: '';
-	background-color: #fff;
-	width: 100%;
-	height: 4px;
-	bottom: 0px;
-}
-.operatorlogo::after{
-	position: absolute;
-	content: '';
-	background-color: #fff;
-	width: 100%;
-	height: 4px;
-	left: 0px;
-	bottom: -08px;
+	position: relative;
 }
 
-.bottom{
-	width: 350px;
-	margin: 0 auto;
+.sec-challenge>span::before{
+	content: "";
+	width: 100%;
+	height: 5px;
+	background-color: #fff;
+	position: absolute;	
+	top: 0;	
+}
+
+.sec-challenge>span::after{
+	content: "";
+	width: 100%;
+	height: 5px;
+	background-color: #fff;
+	position: absolute;	
+	bottom: 0;
+	left: 0;	
+}
+
+.before-start-btn{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 104px;
 }
 
-.start{
+.before-start-btn> input{
+	width: 35%;
 	height: 58px;
 	font-size: 36px;
-	text-align: center;
-	background-color: #000;
 	color: #FF9D00;
-	padding-top: 5px;
+	background-color: #000;
+	border: solid 1px black;
+	cursor: pointer;
 }
-
-.text{
-	font-size: 24px;
+.before-start-btn>p{
 	font-style: italic;
 	color: #fff;
-	margin: -2px;
+	font-size: 24px;
+	
 }
 
-.starttop{
+/* --StartGame-- */
+
+
+.start-tittle{
 	display: flex;
 	justify-content: center;
-	margin-top: 150px;
+	margin-top: 213px;
+
 }
 
-.secchallenge2{
-	width: 400px;
+.start-logo{
+	
+	font-size:  30px;
+	border: solid 3px #fff;
+	color: #fff;
+	
+}
+
+.start-score{
+	display: flex;
+	align-items: center;
+}
+
+.start-score>p{
+	color: #FF9D00;
+	background-color: #fff;
+    width: 31%;
 	font-size: 30px;
 	text-align: center;
-	border: solid 4px #fff;
-	color: #fff;
+    padding: 10px;
 }
 
-.score{
-	width: 135px;
-	height: 50px;
-	font-size: 30px;
-	padding: 3px 14px;
-	background-color: #fff;
-	color: #FF9D00;
+.start-score>span{
+	font-size: 44px;
+	margin-left: 10px;
 }
 
-.time{
+.time-countdown{
+	margin-left:  110px;
+	display: flex;
 	font-size: 96px;
-	margin-left: 128px;
-	font-style: italic;
-	color: #fff;
+	color: #fff;	
+}
+.time-countdown>div{
+	margin: 0 10px;
 }
 
-.startbottom{
+.start-count{
 	display: flex;
 	justify-content: center;
 	margin-top: 104px;
 }
 
-.math{
+.question{
 	display: flex;
-	width: 445px;
+	color: #fff;
 	font-size: 112px;
-	font-weight: bold;
+}
+
+.question>div{
+	margin:  0 15px;
 }
 
 .answer{
-	width: 320px;
+	width: 25.5%;
 	font-size: 112px;
-	padding-left: 64px;
-	margin-left: 79px;
 	background-color: #fff;
-	color: #000;
+	text-align: center;
+}
+
+/* --EndGame-- */
+
+.end-game{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 119px;
+}
+
+.end-tittle{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.end-tittle>h3{
+	margin-bottom: 20px;
+	font-size: 30px;
+	color: #fff;
+	border: solid 3px #fff;
+	width: 60%;
+    text-align: center;
+}
+
+.end-tittle>p{
+	font-size: 56px;
+}
+
+.end-tittle>p>span{
+	color: #fff;
+}
+
+.game-score{
+	font-size: 112px;
+}
+
+.again-btn{
+	font-size: 36px;
+	color: #FF9D00;
+	background-color: #000;
+	border:  solid 1px black;
+	width: 35%;
+	text-align: center;
+	margin-top: 112px;
+	cursor: pointer;
+}
+
+/* --暫時影藏畫面-- */
+
+.start-game{
+	display: none;
+}
+
+.end-game{
+	display: none;
 }
