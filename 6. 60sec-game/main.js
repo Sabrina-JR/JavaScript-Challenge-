@@ -85,7 +85,7 @@ let NewQuestion = () =>{
                         FactorAry.push(i)
                     }
                 }
-                Num[i].innerHTML = FactorAry[Math.floor(Math.random()*(FactorAry.length))]
+                Num[1].innerHTML = FactorAry[Math.floor(Math.random()*(FactorAry.length))]
             }else{ //其餘符號10-99之間隨機
                 num[1].innerHTML = Math.floor(Math.random()*90+10)
             }
@@ -101,7 +101,7 @@ let NewQuestion = () =>{
                     FactorAry.push(i)
                 }
             }
-            Num[i].innerHTML = FactorAry[Math.floor(Math.random()*(FactorAry.length))]    
+            Num[1].innerHTML = FactorAry[Math.floor(Math.random()*(FactorAry.length))]    
         }else{ //其餘符號100-999之間隨機
             num[1].innerHTML = Math.floor(Math.random()*900+100)
         }
@@ -124,11 +124,34 @@ let  Calculate = (e) =>{
             FormulaOperation = Operation.innerHTML;
           }
           RealAnswer = eval(`${FirstNum}${FormulaOperation}${SecondNum}`)
-          console.log(FirstNum,SecondNum,RealAnswer)
+          AllScores(RealAnswer.toString());
           NewQuestion();          
     } 
+}
 
-   
+
+//答案正確加分 錯誤扣分
+
+let AllScores = (RealAnswer) =>{
+    if((TimeStart <= 20) && (Answer.value == RealAnswer)){
+        ScoreNum += 5;
+    }else if((TimeStart > 20) && (Answer.value == RealAnswer)){
+        ScoreNum+= 1;
+    }else{
+        if(ScoreNum <= 0){
+            return
+        }else{
+            ScoreNum -= 1;
+        }
+    }
+    if(ScoreNum < 10){
+        StartScore.innerHTML = `00${ScoreNum}`       
+    }else if(ScoreNum < 100){
+        StartScore.innerHTML = `0${ScoreNum}`
+    }else{
+        StartScore.innerHTML = `${ScoreNum}`
+    }
+    Answer.value = "" //清空數字
 }
 
 
