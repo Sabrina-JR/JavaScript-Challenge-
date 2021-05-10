@@ -1,6 +1,7 @@
 
 //取DOM
 const StartBtn = document.querySelector('.start-btn'); //開始按鈕
+const RestartBtn = document.querySelector('.again-btn')//重新開始按鈕
 const BeforGame = document.querySelector('.befor-game') //遊戲初始畫面
 const StartGame = document.querySelector('.start-game') //遊戲主畫面
 const EndGame =  document.querySelector('.end-game')//遊戲結束畫面
@@ -20,7 +21,8 @@ let SecondNum;
 let FormulaOperation;
 let RealAnswer;
 
-console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Operation,Num,Answer)
+console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Operation,Num,Answer,RestartBtn)
+
 
 let StartTheGame = () =>{
     BeforGame.style.display = 'none';
@@ -92,7 +94,7 @@ let NewQuestion = () =>{
 
     }else if(TimeStart <= 20){
         Num[0].innerHTML = Math.floor(Math.random()*999 +100)
-        if(Opration == '-'){ //如果是減號，減數要小於等於被減數
+        if(Operation == '-'){ //如果是減號，減數要小於等於被減數
             Num[1].innerHTML = Math.floor(Math.random()*(Num[0].innerHTML-100)+ 100)
         }else if(Operation.innerHTML == "÷"){ //如果是除號，除數要是被除數的因數
             FactorAry = [];
@@ -131,7 +133,6 @@ let  Calculate = (e) =>{
 
 
 //答案正確加分 錯誤扣分
-
 let AllScores = (RealAnswer) =>{
     if((TimeStart <= 20) && (Answer.value == RealAnswer)){
         ScoreNum += 5;
@@ -155,8 +156,17 @@ let AllScores = (RealAnswer) =>{
 }
 
 
-//監聽start 進入畫面
+//重新開始遊戲
+let RestartTheGame = () =>{
+    EndGame.style.display = 'none';
+    StartGame.style.display = 'none';    
+    BeforGame.style.display = 'block';
+}
+
+
 StartBtn.addEventListener('click', StartTheGame);
 
 Answer.addEventListener('keydown', Calculate);
+
+RestartBtn.addEventListener('click', RestartTheGame)
 
