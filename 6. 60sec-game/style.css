@@ -207,7 +207,9 @@ body{
 	width: 25.5%;
 	font-size: 112px;
 	background-color: #fff;
+	border:  solid 1px #fff;
 	text-align: center;
+	outline: none;
 }
 
 /* --EndGame-- */

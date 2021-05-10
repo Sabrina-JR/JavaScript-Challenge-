@@ -7,14 +7,20 @@ const EndGame =  document.querySelector('.end-game')//遊戲結束畫面
 const StartScore = document.querySelector('.start-score span') //顯示分數
 const FinalScore = document.querySelector('.game-score') //最後分數
 const Time =document.querySelector('.time-countdown') //剩餘時間
-const Opration = document.querySelector('.opration'); //題目加減乘除符號 
+const Operation = document.querySelector('.operation'); //題目加減乘除符號 
 const Num = document.querySelectorAll('.num'); //題目數字
 const OperationArray = ['+', "-", "×", "÷"];
+const Answer = document.querySelector('.answer') //答案輸入框
 
 let TimeStart = 60;
 let ScoreNum = 0;
 
-console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Opration,Num)
+let FirstNum;
+let SecondNum;
+let FormulaOperation;
+let RealAnswer;
+
+console.log(StartBtn,BeforGame,StartGame,EndGame,StartScore,Time,Operation,Num,Answer)
 
 let StartTheGame = () =>{
     BeforGame.style.display = 'none';
@@ -22,11 +28,11 @@ let StartTheGame = () =>{
     StartScore.innerHTML = `000`;
 
     NewQuestion();
-
-    //遊戲開始 時間倒數
-    setInterval( CountTime,1000)
+    setInterval( CountTime,1000);
 }
 
+
+//遊戲開始 時間倒數
 let CountTime = () =>{
     if(TimeStart<=0){
         StartGame.style.display = 'none'; 
@@ -52,12 +58,12 @@ let CountTime = () =>{
 // 產生新的題目
 let NewQuestion = () =>{
     let FactorAry =[];
-    Opration.innerHTML = OperationArray[Math.floor(Math.random()*4)] //顯示加減乘除隨機符號
+    Operation.innerHTML = OperationArray[Math.floor(Math.random()*4)] //顯示加減乘除隨機符號
     if((TimeStart<=60) && (TimeStart > 40)){
         Num[0].innerHTML = Math.floor(Math.random()*9+1);
-        if(Opration == '-'){ //如果是減號，減數要小於等於被減數
+        if(Operation == '-'){ //如果是減號，減數要小於等於被減數
             Num[1].innerHTML = Math.floor(Math.random()*Num[0].innerHTML +1)
-        }else if(Opration == '÷'){//如果是除號，除數要是被除數的因數
+        }else if(Operation == '÷'){//如果是除號，除數要是被除數的因數
             for( i=1; i<Num[0].innerHTML+1; i++){
                 if(Num[0].innerHTML % 1 == 0){
                     FactorAry.push(i)
@@ -70,7 +76,7 @@ let NewQuestion = () =>{
 
     }else if ((TimeStart<=40) && (TimeStart>20)){
             Num[0].innerHTML = Math.floor(Math.random()*89+10)
-            if(Opration == '-'){ //如果是減號，減數要小於等於被減數
+            if(Operation == '-'){ //如果是減號，減數要小於等於被減數
                 Num[1].innerHTML = Math.floor(Math.random()*(Num[0].innerHTML-10) +10)
             }else if(Operation.innerHTML == "÷"){ //如果是除號，除數要是被除數的因數
                 FactorAry = [];
@@ -81,7 +87,7 @@ let NewQuestion = () =>{
                 }
                 Num[i].innerHTML = FactorAry[Math.floor(Math.random()*(FactorAry.length))]
             }else{ //其餘符號10-99之間隨機
-                num[1].innerHTML = Math.floor(Math.random()*89+10)
+                num[1].innerHTML = Math.floor(Math.random()*90+10)
             }
 
     }else if(TimeStart <= 20){
@@ -104,6 +110,30 @@ let NewQuestion = () =>{
 }
 
 
+//Enter後計算正確答案
+let  Calculate = (e) =>{
+    if(e.keyCode == 13){
+        FirstNum = Num[0].innerHTML;
+        SecondNum = Num[1].innerHTML;
+
+        if(Operation.innerHTML == "×"){
+            FormulaOperation = "*"
+          }else if(Operation.innerHTML =='÷'){
+            FormulaOperation = '/'
+          }else{
+            FormulaOperation = Operation.innerHTML;
+          }
+          RealAnswer = eval(`${FirstNum}${FormulaOperation}${SecondNum}`)
+          console.log(FirstNum,SecondNum,RealAnswer)
+          NewQuestion();          
+    } 
+
+   
+}
+
+
 //監聽start 進入畫面
-StartBtn.addEventListener('click', StartTheGame)
+StartBtn.addEventListener('click', StartTheGame);
+
+Answer.addEventListener('keydown', Calculate);
 
