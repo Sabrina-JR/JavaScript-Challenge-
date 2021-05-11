@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>60sec-game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="befor-game">
+             <div class="befor-tittle">
+                <h1 class="sec">60</h1>
+                <p class="sec-challenge">SECONDS<span>+−×÷</span><br>CHALLENGE</p>
+            </div>
+            <div class="before-start-btn">
+                <input type="button" class="start-btn" value="START">
+                <p>try to answer more as you can</p> 
+            </div>
+        </div>
+
+        <div class="start-game">
+            <div class="start-tittle">
+                <div class="start-tittle-item">
+                    <h2 class="start-logo">60 SECONDS CHALLENGE</h2>
+                    <div class="start-score">
+                        <p>SCORE</p>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="time-countdown">
+                    <div>00</div>
+                    <div>:</div>
+                    <div>00</div>
+                </div>
+            </div>
+            <div class="start-count">
+                <div class="question">
+                    <div class="num">11</div>
+                    <div class="operation">X</div>
+                    <div class="num">12</div>
+                    <div>=</div>
+                </div>
+                <input type='text' class="answer">
+            </div>
+        </div>
+    
+        <div class="end-game">
+            <div class="end-tittle">
+                <h3>60 SECONDS CHALLENGE</h3>
+                <p><span>—</span> YOUR FINAL SCORE <span>—</span></p>
+                <div class="game-score">74</div>
+            </div>
+            <input type="button" class="again-btn" value="TRY AGAIN!">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
